@@ -42,3 +42,195 @@ Episode 1 - Inception
 - That is React can work on a small section of a page also
 
 Episode 2 - Igniting Our App
+- We need to do a lot of processing in the local before moving the code into production 
+- bundling and compressing code
+- React is making our app fasst, but there are lots of other packages that helps to do so
+- npm - mananges packages but does'nt stands for Node Package Manager
+- Is is the standard repository for all the packages
+- All the libraries, all the packages comes from npm
+- it just manages for us
+- Add npm into our project using command npm init
+- On initializing npm we get package.json file
+- This file is basically a configuration file for our npm
+- packages are dependencies
+- version of packages are taken care by npm in package.json file
+- Most important package in our project is a bundler
+- Webpack, parcel are bundlers
+- Bundler basically bundles our app properly - minify, compress
+- create React App uses webpack behind the scenes
+- How to install packages from npm in our project - npm install -D parcel
+- On doing so node_modules folder gets created, package-lock.json and package.json file gets updated.
+- There are two types of installing packages from npm into our project -> Development Dependency and normal Dependency
+- When we write '-D' then it means the package is meant only to be used in development environment not production but in case of normal installations it is meant for global use
+- In package.json - parcel comes under devDependencies
+- Difference between tilde and carat in package.json?
+- If we have carat in the dependencies, next time if we have higher version of the package available will upgrade to the latest version available.
+- carat - in case of minor versions and tilde - in case of major version
+- It is always safe to have carat
+- package.json is a configuration for npm, that keeps a track of what version of the package being installed in our system
+- package-lock.json keeps the exact track of the version of the dependency that got installed.
+- integrity field in package-lock.json - to maintain integrity
+- What is node_modules?
+- It contains all the codes that we fetched from npm
+- Database of all the packages as mentioned in package.json and their dependent pakages.
+- What is Transitive Dependency?
+- In a project there are many package.json file, every dependency has its own package.json file.
+- Should I put node_modules to git hub?
+- Put inside gitignore as this folders are regenerated using package.json and package-lock.json
+- npm install
+- npx parcel index.html
+  parcel will create a server for us and host in port 1234
+- npm install means installing or downloading package from npm to node_module folder but npbx means executing the package
+- on running the npx command, parcel builds a development build for our app and host in port 1234
+- Another way to get React into our app is via npm install
+- CDN is not a proper way to have React and React DOM into our project
+- If we have react already in our node_modules folder, it will be very easy to use.
+- The link we will have to keep on changing if a new version of react comes
+- It will be very easy to manage React as one of the dependency managed by package.json file
+- we need React as normal dependency - so use command npm install react
+- now install react-dom
+- Now if we remove the CDN link, will our app work now? - Reference Error: React is not defined comes
+- No we need to import the packages into our project
+- Getting below error on importing - @parcel/transformer-js: Browser scripts cannot have imports or exports.
+- Script treats app.js as browser script - normal javaScript, but normal javaScript doesn't have import.
+- We need to tell explicitly that the script type is a module
+- import React from 'react'
+    import ReactDOM from 'react-dom/client'
+- What Parcel is doing?
+    Zero Config Tool
+    Dev Build
+    Local Server
+    Host Build into Server
+    Change in file reflects in server hosted - due to HMR Hot Module Replacement
+    File Watching Algorithm - written in C++
+    Every build reduces the time - parcel is caching things for us and gives faster development things
+    Where Parcel caches things - .parcel-cache in binary code
+    Image Optimization
+    Minification and Bundling of files for production
+    Compress file
+    Consistent Hashing
+    Code Splitting
+    Differential Bundling - When app is hosted can be hosted in different versions of browser - suppport older browsers; Generate nomodule fallback for older browsers version
+    Diagnostic
+    Better Error Suggestion
+    Parcel gives feature to host on HTTPS
+    Tree Shaking - Remove unused code for us, the code that we are not using in our app
+    Parcel a budler also help makes app first along with React.
+    Parcel has a lazy mode
+    Different Dev and Prod bundles - take little more time for prod builds
+    Optimization are more in production build than on dev builds.
+In System Design Interview this will be helpful - what makes React as a whole so fast
+- Parcel is also not doing everything on its own, it uses different libraries for doing different work
+- How to create a prod build? - npx parcel build index.html
+    The only thing needed to create prod build is the build keyword
+- This throw error as in the package.json file we have defined the entry point as App.js but here in the command providing as index.html, so remove the line main from package.json
+- When we run the build command, parcel will minify, optimize, compress the code and have it in the dist folder.
+- The things that are hosted in the server are coming from the dist folder.
+- When we excute the parcel build command, it generates the dev build or prod build of the project and host it into the server
+- When the parcel generates the dev build it stores it in the dist folder.
+- When we refresh the page or save file, uses the .parcel-cache and dist to update th page using HMR
+- prod builds three main files - js, html and css
+- parcel.cache and dist files are regeneratable and so need to be put in .gitignore
+- Process: We push code from local to git, from git server fetches the code, the server will host app for the end users.
+- All the commands will be executed in server also - npm install, server will have its own dist folder, .parcel-cache folder and node_modules folder
+- Make browser compatible for different versions using browserlist, configur it in the package.json file.
+- When we write "last 2 Chrome versions" - means our app will definitely work on last 2 Chrome versions and it might or might not work on other browers.
+- What to write can be checked in browserlist.dev site
+- It will write extra bundles extra code when we try to cover all the browserlist - support older browser versions
+- "last 2 versions" - supports 79% of browser coverage
+- in browserlist we can give company specific details also
+
+Episode - 03 (Laying the foundation)
+- Configure project commands in package.json file under scripts: 
+- npm run start and npm start are both same
+- npm run build is command to build production build
+- React.createElement is a react object when rendered to dom creates a html element
+- The html element where we want to render content is having something will get replaced with the new content and if not rendered successfully, will show the previous content
+- React.createElement is very clumsy
+- Core of react is React.createElement but it is inefficient to write this - its very hard to read and is not developer friendly
+- To help developer community something called JSX was developed by facebook community.
+- JSX is a javascript syntax which is easier to create react elements.
+- JSX is not part of React, JSX and React are both different.
+- Without JSX, a whole application can be created using React but, JSX makes developers life easy.
+- Previously we used to write our markup in .html file and the logics in .js file
+- the libraries, frameworks like react tries to merge these files up
+- JSX is a convention that merge these .html and .js together.
+- Create a heading element using JSX: 
+    const jsxHeading = <h1> element created using jsx </h1>
+- JSX is not html inside javascript, jsx is different than html
+- JSX is a html like syntax or xml like syntax.
+- When jsx code is executed becomes a react element
+    const jsxHeading = <h1 id="heading">heading using html</h1>
+- log jsxHeading - react element
+- We are writing code for machine and human - firstly for developers who are going to go through it.
+- Is JSX a valid JavaScript ? - It is not a pure javascript
+- JS Engine won't understand JSX, it will understand ECMAScript
+- If JS Engine can't read this JSX code, how the app is working?
+    Parcel is doing the job behind the scenes, even before the whole code in App.js goes to the browser, it is transpiled and go to the JS Engine.
+    And then JS Engine received the code, that the browser can understand.
+    JSX code is basically getting transpiled before it reaches the JS Engine.
+    Transpiled means the code is converted into the code that browsers can understand.
+    Transpile is being done by Parcel, but Parcel doesnt do this. Parcel is like a manager who manages so many packages.
+    Parcel gives the responsiblity to transpile to a package called Babel
+    While installing Parcel, a dependency package Babel gets installed.
+    As soon as we save the file, babel converts the code quickly to a code that React will understand.
+- Babel is a JavaScript compiler or transpiler.
+- Babel takes the jsx code and converts into code that React will understand / JS Engine will understand
+- Behind the scenes, JSX code is converted into React.createElement and then React.CreateElement is converted to React Element Object and then this is rendered into the DOM as a HTML element.
+- JSX at the end behind the scenes is React.createElement.
+- Babel is converting this JSX code into React.createElement.
+- Babel does a lot of other things too, when older version of browser doesn;t undertand latest ECMAScipt, Babel converts that into older version.
+- In JSX if we have to give class, we need to write className
+- The className in JSX gets converted to class in HTML
+- In JSX, the attributes follows camel casing syntax. Example tabIndex=1
+- Single line and multiline code in JSX
+    In order to write multiline JSX code, we need to wrap them up in simple bracket ().
+- VS Code Extension: Prettier Code Formatter, Bracket pair colorizer, ES Lint, Better Comment
+- What is React Components?
+    Everything is a component in React
+    Button, Header, Footer is a component
+    There are two types of components in React:
+    1. Class Based Components - old way of writing code - no one uses this - uses JS Class to create Component
+    2. Functional Components - new way of writing code - uses JS Functions to create Component
+- There are some legacy projects which has Class based components
+- What is React Functional Components?
+    It is just a normal JavaScript function which returns some JSX elements / returns a React Element
+    While creating a React Functional Component name it with Capital Letter.
+- If we have a single line of JSX element to be return, we need not enclose it within curly braces and use return keyword.
+- If we have multiline of JSX code enclose it within simple bracket
+- if we have used return keyword, use curly braces to enclose the JSX code.
+- React Element is a variable having JSX Code -> JSX Code transpiled by Babel to create React Element
+- What is differce between React Component and React Element?
+- React element is rendered as root.render(ReactElement) but React Component can't be rendered like this
+- React Components are rendered like <ReactComponent/>
+- This is the syntax which Babel understands, by the syntax, babel understands it's a React Component.
+- How to render a component inside another component - component Composition 
+- A normal function or an arrow function can be used as a React Functional component.
+- In a React functional Component, insert curly braces {}, can run any piece of JavaSript code.
+- Even console.log also works if put inside curly braces.
+- How to Put React element inside React Functional Component?
+    React Element is stored in a JavaScript Variable and so can be used inside React Functional Component using curly braces.
+- How to put React Element inside React Element - using curly braces
+- We can put a React component inside a React Element
+- Whenever some data is enclosed in curly braces, jsx won't blindly run it, sanitize the data and pass it, avoids cross Site Scripting attacks.
+- Rendering React Functional Components two ways:
+    1. <ReactComponent>
+    2. <ReactComponent></ReactComponent>
+- There is not limit to render React Functional Components
+- React Functional Component is a normal function and can be invoked inside a React Functional Component when enclosed in curly braces as javascript code.
+
+Episode - 04 (Talk is Cheap Show me the Code)
+- Plan first
+- Build Food Ordering App
+- Give a Name
+- How the App will look like - Basic UI
+- Have a Header - Logo, build some link on right side - Home, Logo, About, Cart  
+- Below the header will have a Search bar in the body
+- In the body will have a search bar, restaurant cart ()
+- In the Footer will have copyright and contact us
+- While building an app, first plan the wireframe or mock, and then work on code build
+- Now we can work on the components App can have
+  1. Header Component - Logo, Nav items components
+  2. Body Component - search input bar, Restarurant containers (Restaurant Card)
+  3. Footer Component - Copyright, Contact us, About us
+- 
