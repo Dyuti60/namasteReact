@@ -19,12 +19,12 @@ const Header = ()=>{
         </div>
     )
 }
-styleResCard = {
-    backgroundColor: '#f0f0f0',
-    borderRadius: '10px',
-    padding: '20px',
-    marginBottom: '20px'
-}
+// styleResCard = {
+//     backgroundColor: '#f0f0f0',
+//     borderRadius: '10px',
+//     padding: '20px',
+//     marginBottom: '20px'
+// }
 // const RestaurantsCard = ({resName,cuisine,ratings,address,priceRange})=>{
 //     return(
 //         <div className='res-card' style={styleResCard}>

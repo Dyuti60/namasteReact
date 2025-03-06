@@ -312,5 +312,57 @@ Episode - 05 ( Let's get hooked)
 - Diff Algorithm: finds out difference between updated virtual DOM and old DOM
                   It calculates the difference and then actually updates the DOM for every render cycle
 - In React 16, a new algorithm called React fibre came which finds out the difference and ipdate the DP
-- 
+- Finds out the difference between two React Element Objects (virtual DOM) and update the Actual DOM
+- React fibre is the ongoing reimplementation of React's core algorithm
+- Incremental Rendering - the ability to split the rendering works into chunks and spread it out over multiple frames.
+- Understand React Fibre Architecture Docuementation 
 
+Episode -06 (Exploring the World)
+- Monolith and Microservice Architecture
+- Separation of concerns and single responsibility principle
+- How do this individual services interact with each other?
+    The services run on different ports and then these ports are map to the same domain name
+- We can have different tech stack for different services.
+- Get dynamic data from API / Backend
+    Two Approaches
+    1. As soon as our page loads ->Wait for page loads -> Call API -> Wait for API Response-> Render API Response data
+    2. As soon as the page loads -> Wait for page loads -> Render the UI -> Call API -> Wait for API Response -> Render the Response in the UI already rendered. (Use this approach as this gives better user experience)
+- useEffect() - comes from the React library, as named import.
+                It is a utility function takes two arguments: callback function and dependency array
+                This callback function will be called after the component is rendered
+                If you have to do something after rendering the component, then will have to use useEffect
+- useEffect() is useful when we go for second approach
+- fetch() is a helper function provided by Browser that helps fetch data from the API
+- Get Below Error : "https://www.swiggy.com/restaurants' from origin 'http://localhost:1234' has been blocked by CORS policy:"
+    - which means our browser block us to call API from one origin to different origin
+- What is CORS policy- get an understanding of the CORS policy
+- How to bypass the CORS policy
+- CORS Chrome Extension - Allow CORS- Access-Control-Allow-Origin
+- Optional Chaining
+- How we can improve the experience of having a blank page and the same getting rendered after sometime - we can have a spinning loader
+- Is showing a spinner a good way - no its not
+- Shimmer UI - We load fake page untill we get the actual data rendered - makes a fake impression that something is going to get render
+- Conditional Rendering
+- Can use ternary operator using shimmer
+- when we can use constant variables, why do we use state variables?
+    Create a button login - on clicking which change to logout
+    use let variable initialize to login and change it to logout when clicked - event listener
+    let variable gets updated but the component UI doesn't change with that data.
+    There should be someway that the header component can refresh and have the latest change in data.
+    This is where JS Variables doesn't work
+    - Here is where local state variable comes into picture
+- Search Text and Search Button
+- onChange
+- When we enter any character in search input text, the body component gets rerendered - reconcillation cycle begins each time
+- two list - to accommodate filteredList change on filtering rendered data on UI
+- json viewer chrome extension
+- What is Optional Chaining?
+- corsproxy.io
+- What is CORS?
+https://corsproxy.io?
+paste it before API,not directly goinging to Swiggy -> internally goes to CORS redirects to API
+
+
+-----------------------------------------------------------------------------------------
+Episode - 07 (Finding the Path)
+- 

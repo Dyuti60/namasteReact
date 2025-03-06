@@ -4,8 +4,6 @@ import Header from './components/Header'
 import Body from './components/Body'
 import Footer from './components/Footer'
 
-// Create Header Component
-
 styleResCard = {
     backgroundColor: '#f0f0f0',
     borderRadius: '10px',
