@@ -272,3 +272,45 @@ Episode - 05 ( Let's get hooked)
 - When we create a js file for a React Component, try to have give the same name.
 - Its debatable to write the component file as .js or .jsx or .tsx file
 - We need to export and then import each component file
+- Default Export and Import and Named Export
+- Named Export - curly braces is required while importing
+    Variable imported needs to be used within curly braces
+    Component can be directly used
+- Default Export - No curly braces needed while importing
+    Variable imported needs to be used within curly braces
+    Component can be directly used
+- When we have to export multiple things use named export else use default export
+- We can use Default Export along with Named Export
+- How to make our App Dynamic?
+    - objective is to filter out restaurants having rating >4.2
+    - Add Event Listener onClick
+    - onClick takes a callback function
+    - Add Event Listener onMouseOver
+- React is fast and efficient in DOM manipulation, Data is in sync with the UI
+- State Variable - React Super Powerful Variable - for that we use hooks
+- React Elemen is a JS object, React Component is a normal JS function, Hooks in React is a normal JS utility function
+    - Has some feature given to Hooks
+    - Two most important React Hooks are - useState() and useEffect()
+    -  useState() - creates superpowerful State variables in React
+                    first need to import this from React
+                    need to import it like a named import
+                    its called state variable, as it maintains the state of the component
+                    the scope of a local state variable is inside the component
+                    when we call useState(), it will give state variables in the form of arrays
+                    values are to be passed in useState() to instantiate the state variable
+                    if we want to modify the state variable need to provide a second parameter of the array
+    - Whenever a state variable updates, React will rerenders the component
+    - rerenders means updating the component whenever state variable update
+    - useEffect() -
+- Superpowers of React:
+    - Reconcillation Algorithms as known as React fibre
+    - Suppose we have a res-containers and is having 7 res-card
+    - UI changes to filter only 4 res-cards
+    - When UI changes, React creates a virtual DOM
+    - Virtual DOM is representation of Actual DOM
+    - Virtual DOM are React Element Objects
+- Diff Algorithm: finds out difference between updated virtual DOM and old DOM
+                  It calculates the difference and then actually updates the DOM for every render cycle
+- In React 16, a new algorithm called React fibre came which finds out the difference and ipdate the DP
+- 
+
