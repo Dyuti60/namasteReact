@@ -365,4 +365,70 @@ paste it before API,not directly goinging to Swiggy -> internally goes to CORS r
 
 -----------------------------------------------------------------------------------------
 Episode - 07 (Finding the Path)
-- 
+- When is the useEffect() called?
+    It gets called after each render of that component
+    The dependency Array changes the behaviour of the render
+    - If there is no dependency array, then useEffect gets called after every component render
+    - If there is empty dependency Array, then useEffect gets called only on initial render
+    - If dependecy Array has a state variable, then every time the variable gets updated, the useEffect gets called.
+- useState() best practices
+    - Never create useState() outside the component
+    - Invalid hook called, hooks can only be called inside the component
+    - It has a purpose of creating local state variables inside the functional component
+    - try to call the useState() method on the top when the function definition begins
+    - Never use useState() inside if else or in for loop or in a funtion, this can lead to inconsistent behavior in program
+    - Create useState() inside the component on higher level - won't throw any error.
+- Routes in React Applications
+    - npm install react-router-dom
+    - create About Us page
+        - Whenever we need to create Routes, we need to do routing configuration in the root of the application
+        - npm un react-router-dom
+        - npm i react-router@latest
+        - import { createBrowserRouter } from 'react-router'
+        - to have routing configuration, we need to import createBrowserRouter, which will create a routing configuration for us
+        - Configuration means some information that will define what will happen on a specific route.
+        - createBrowserRouter will take a list of paths(an object having routes)
+        - create router configuration const AppRouter = createBrowserRouter([{},{}])
+        - import RouterProvider from 'react-router', which will provide routing configuration to the App
+        - Need to render this routeProvider into root, instead of providing the component
+        - rootLabelElement.render(<RouterProvider router={AppRouter}/>)
+        - createBrowserRouter is the recommended router for all React Router web projects
+        - There are various routers based on usecases - <go throw it>
+- shortcut to create component 'rafce'
+- react - router gives us meaningful error for the routes not handled and throwing error
+- Create a user defined error page - if there is a error load error component
+- while defining route configuration initialize errorElement with error component
+- React also gives us a hook useRouterError to handle route error in error component
+    import { useRouteError } from "react-router"
+    - whenever a function starts with 'use' its a hook, a common convention in React
+    - to display a better error message with specific details
+- As we move to new routes - the header and footer will be intct only the body will be replaced with the route rendered content
+- How to keep Header intact
+    - to have this kind of functionality, will have to make children routes
+    - children will have all the route paths
+    - in the main App layout need to call outlet import from react-route
+    - the outlet will be filled with children according to the route path 
+- Children Routes
+- Link other page
+    - When using react and want to route to some other page, never use anchor tag - on doing this the whole page gets refreshed
+    - Using React we can navigate to a new page without reloading the whole page
+    - import {Link} from 'reactor-router' will help us route to other page using text link
+    - Link work same as Anchor tag just we have 'to' attribute in place of href attribute
+    - only that particular component will get changed, the page won't reload
+- Single Page Application - React - Its only one page where components gets changed via Client Side Routing
+    - There are two type of routing possible:
+        1. Client Side Routing - no network call made, only the component gets updated and loaded
+        2. Server Side Routing - You make a network call and makes a network call from server, whole page loads
+- Create Different Pages for different Restaurants
+    
+
+
+
+
+-----------------------------------------------------------------------------------------
+Episode -08 (Let's get Classy)
+- Class Based Component
+    - About, User components created
+    - To tell react of a class based component : class <className> extends React.Component
+    - A class based component having render function which returns a JSX component
+- Functional React Component - A JS function that returns a JSX component
