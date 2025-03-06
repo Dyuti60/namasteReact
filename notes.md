@@ -233,4 +233,42 @@ Episode - 04 (Talk is Cheap Show me the Code)
   1. Header Component - Logo, Nav items components
   2. Body Component - search input bar, Restarurant containers (Restaurant Card)
   3. Footer Component - Copyright, Contact us, About us
-- 
+- Restaurant Card
+  Name, img, Star Rating, Cuisine, delivery time etc.
+- Inline CSS styles are given in React Functional Component as JavaScript Objects
+- It is not advised to use inline CSS styles
+- {{}} - the first curly braces says inside will have JavaScript code, the second curly braces is for JavaScript Objects.
+- Props in React
+- Props is a short form for Properties, properties are something that can be passed to React Components
+- Dynamically pass data to a component - this is possible using props
+- props are arguments to a function and Component are the functions
+- passing props to a component is what is said.
+- destructuring props on the fly
+- json viewer chrome extension
+- What is config driven UI?
+    Website driven by data configs
+    Delhi people getting delhi data locationwise
+    Controlling UI, how it will look like using data configs
+    That configs comes from backend
+- When we build a large scale application, we store all our images in CDN
+- Optional Chaining 
+- To use loop use JavaScript map function
+- There is a error "Each child in a list should have a unique "key" prop."
+    Each of the list items should be uniquely represented.
+    pass a unique value for key
+- Whenever we are using map try to have a unique key for each element of the list.
+- Why do we need Key?
+    When there are components at the same level, these components should be uniquely represented, React tries to rerender the restaurant card when a new card is to be inserted as React doesnt able to identify cards uniquely.
+    But if a unique id is being given to each restaurant card, React will only render the new card, as it identifies the other cards already present.
+- People uses index as key also, this logically looks right as everytime there is a unique index for each restaurant card but React itself says not to use index as keys.
+- Index as a key is anti pattern
+- Keys are to be used - if unique id is not there then use index but it is not recommended
+
+Episode - 05 ( Let's get hooked)
+- Everything we do using React is possible using HTML, CSS and JavaScript
+- The beauty of using any library or React is that it makes developer experience easy.
+- Best Practice in Industry is to make separate files for separate components
+- To know more about folder structure in a React Project go to File Structure in React Documentation
+- When we create a js file for a React Component, try to have give the same name.
+- Its debatable to write the component file as .js or .jsx or .tsx file
+- We need to export and then import each component file
